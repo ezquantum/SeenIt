@@ -19,8 +19,8 @@ from forms import *
 
 app = Flask(__name__)
 moment = Moment(app)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'postgres://Amajimoda@localhost:5432/kemaru'
-app.config['SECRET_KEY'] = 'meow'
+app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL')
+app.config['SECRET_KEY'] = os.environ.get('SECRET_KEY')
 db = SQLAlchemy(app)
 
 # TODO: connect to a local postgresql database (done) added secret key
